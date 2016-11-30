@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Posicionamiento de Elementos</title>
+	<style type="text/css">
+		
+		 #conBorde,#conBorde *{
+		 	border: solid 3px black;
+		 	
+		 }
+		 #conBorde{
+		 	background-color: cyan;
+		 }
+		 #conBorde *{
+		 	background-color: orange;
+		 }
+		#contenedor{
+			border: 5px solid black;
+			height: 300px;
+			background-color: red;
+			padding: 10px;
+			/*overflow: scroll;*/
+			/*position: relative;*/
+		}
+		#contenedor div{
+			display: inline-block;
+			border:5px solid black;
+			min-width: 80px;
+			min-height: 80px;
+			margin: 10px;
+			text-align: center;
+			color: white;
+			background-color: navy;
+
+
+		}
+		/*#primero{
+			position: relative;
+			top: 8em;
+		}
+		#segundo{
+			position: absolute;
+			top: 24em;
+			right: 2em;
+		}
+		#cuarto{
+			position: fixed;
+			bottom: 5em;
+		}*/
+		/*#a{
+			float: right;
+		}
+		#c{
+			float: left;
+		}
+		#d{
+			width: 400px;
+			height: 400px;
+
+		}*/
+		#I,#II,#III{
+			display: block !important;
+		}
+		#II{
+			clear: right;;
+		}
+		
+	</style>
+</head>
+<body>
+	
+	<section id="conBorde">
+		<h1>CEPC</h1>
+		<p>Comunidad Estudiantil de Programaci&oacute;n Competitiva</p>
+		<address>Estos elemento son de tipo bloque y por lo tanto ocupan toda el area disponible hasta el final de la linea</address>
+		<h3>Es por eso que se acomodan uno bajo de otro</h3>
+		<pre>	¿Qu&eacute; otros elementos seran de bloque?</pre>
+	</section>
+	<section id="conBorde" style="margin-top:30px;">
+		<i>Estos son elementos de tipo linea y por lo tanto solo ocupan tama&ntilde;o que necesitan</i>
+		<b>Esta etiqueta es otra y sin embargo se coloc&oacute; despu&eacute;s de la primera</b> 
+		<u>Y qu&eacute; pasa si falta espacio para una m&aacute;s?</u> <a href="#">Qu&eacute; otras etiquetas son el l&iacute;nea?</a>
+	</section>
+
+	<h2>Hay una buena noticia :D</h2>
+	<h3>a cualquier elemeto html podemos cambiarle su comportamiento :D y asi jugar con las posiciones </h3>
+	<p>Pero primero , crearemos un contenedor y dentro de el pondremos tres divs </p>
+	<p>Los div's qu&eacute; tipo de elemento ser&aacute;n?</p>
+	<section id="contenedor">
+		<div id="primero">1</div>
+		<div id="segundo">2 ya me voy</div>
+		<div id="tercero">3 Yo ocupo su lugar yupi!</div>
+		<div id="cuarto">4 Yo estoy fijo en la pantalla y no me muevo ni con scroll :D</div>
+		<br><br>
+		<p>SOLAPAMIENTO</p>
+	</section>
+	<h2>No vean lo duro, si no lo tupido :w</h2>
+	<p>Aprendan a flotar!</p>
+	<section id="contenedor">
+		<div id="a">1 flote y ya no soy parte del flujo xD</div>
+		<div id="b">2</div>
+		<div id="c">3 yo no voy aqui xD</div>
+		<div id="d">
+			<img src="cepc.png" alt="CEPC" width="150px" style="float:left;">
+			<p>Quisiera que el texto fluyera sobre la imagen :c</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam iste, temporibus a porro iure, reprehenderit ab minus quasi delectus officiis voluptatum sint, velit deserunt soluta mollitia? Ducimus, nisi iste quo.</p>
+			<p>Ya fluye xD</p>
+		</div>
+	</section>
+
+	<h2>Por ultimo empezemos a limpiar C:</h2>
+	<p>Y si quiero no ocupar el espacio que me sobra al flotar?</p>
+	<section id="contenedor" style="height:auto;">
+	<img src="cepc.png" alt="CEPC" width="300px" style="float:left;">
+	<div id="I" > 
+		<p>Como la imagen esta flotada </p>
+	
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur minima, reiciendis beatae id unde officiis velit. Accusamus eum nostrum quasi veritatis, repellendus perspiciatis explicabo aliquid reprehenderit ut maiores ea iusto?</p>
+		<p>Si queremos que la siguiente caja se ponga hasta abajo de la imagen debemos limpiar esa area</p>
+	</div>
+	<div id="II">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, ducimus delectus libero pariatur! Sit consectetur, rem ut dolores, distinctio nam modi, eligendi aperiam dignissimos omnis totam ratione minima dolor sapiente.</p>
+		<p>AREA LIMPIA :D</p>
+		<p>Uy pero el contenedor no lo agarro :( pues vamos a forzarlo :D</p>
+
+	</div>
+	<section style="clear:both;"></section>
+		
+	</section>
+</body>
+</html>

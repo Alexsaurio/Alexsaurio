@@ -1,0 +1,265 @@
+*{
+	margin: 0px;
+}
+header{
+
+}
+header div{
+	background-color: #ce1030;
+	text-align: center;
+	max-height: 200px;
+	margin-top: -40px; 
+}
+.clena{
+	clear: both;
+}
+#forma{
+	float: left;
+	display: inline-block;
+	width: 54.5%;
+	background-image: url('pokedex.png');
+    height: 540px; 
+	margin: 20px 0% 0px 2.5%;
+}
+#images img{
+	width: 30%;
+	margin: 2px;
+}
+#images{
+	overflow: auto;
+	float: right;
+	display: inline-block;
+	background-color: #ce1030;
+	border-radius: 5px;
+	width: 35%;
+	padding: 10px;
+	margin: 20px 4% 0px 2.5%;
+	max-height: 510px;	
+}
+.hove{
+	transition: .5s;
+	background-color: white;
+	border-radius: 100px;
+}
+#poke{
+	width: 237px;
+	height: 157px;
+	position: absolute;
+	top: 344px;
+	left: 101.2px;
+	border-radius: 10px
+}
+#poke img{
+	width: 170px;
+	margin: -3px 0px 0px 45px;
+}
+#datos{
+	width: 228px;
+	height: 202px;
+	padding: 5px;
+	border-radius: 4px;
+	position: absolute;
+	top: 358px;
+	left: 482px;
+}
+.agregar{
+	position: absolute;
+	top: 645px;
+	left: 642px;
+	color: white;
+	width: 40px;
+	height: 100px;
+
+}
+#pagina{
+	margin-top: 575px;
+	background-color: #ce1030;
+}
+#titulopoke{
+	color: white;
+	text-align: center;
+	padding: 10px;
+	font-size: 40px;
+	border-bottom: 2px solid white;
+}
+
+
+.carta{
+	margin: 0px 20%;
+	padding-top: 50px;
+	padding-left: 20px;
+
+	background-color: #032d28;
+}
+.pokemon,.num,.titulo,.altura,.peso,.apodo,.tipo{
+ display: inline-block;
+}
+.num,.titulo,.altura,.peso,.apodo,.tipo{
+ background-color: #ce1030;
+ color: white;
+ border-radius: 4px;
+ padding: 0px 10px;
+ -webkit-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+}
+.pokemon{
+	float: left;
+}
+.num,.tipo{
+	width: 34%;
+}
+.titulo{
+	width: 70%;
+}
+.altura,.peso{
+	width: 34%;
+}
+.apodo{
+	text-align: center;
+	width: 70%;
+}
+.descrip{
+	padding: 0px 50px 50px;
+	color: white;
+	font-size: 18px;
+}
+
+.vali{
+	margin-top: -32px;
+	margin-left: -6px;
+	width: 240px;
+	border-radius: 3px;
+	background-color: #032d28;
+	color: white;
+	position: absolute;
+	text-align: center;
+	padding: 2px;
+	opacity: 0;
+}
+
+.op{
+	opacity: 1;
+}
+
+
+.verde{
+	color: white;
+	background-color: #009688;
+}
+
+.rojo{
+	color: white;
+	background-color: #E62222;
+}
+
+.contenedor{
+	padding: 0 8px;
+}
+
+.tarjeta{
+	float: left;
+	width: 24.2%;
+	/*min-height: 650px;
+	height: 32%;*/
+	/*height: 20%;*/
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,16), 0px 2px 10px 0px rgba(0,0,0,12);
+	margin: 0px 5px;
+	box-sizing: border-box;
+	padding: 30px;
+}
+.marginArriba{
+	margin-top: 16px !important;
+}
+
+.imagenTarjeta{
+	text-align: center;
+}
+
+.imagenTarjeta img{
+	/*width: 100%;*/
+	height: 13em;
+}
+
+.infoTarjeta{
+	text-align: center;
+}
+
+@media screen and (max-width: 785px){
+	.tarjeta{
+		width: 48%;
+		/*background-color: green;*/
+	}
+}
+
+@media screen and (max-width: 560px){
+	.tarjeta{
+		width: 98%;
+		/*background-color: transparent;*/
+	}
+}
+
+.pokemon{
+	width: 49%;
+}
+.limpiar{
+	clear: both;
+}
+
+.datos{
+	border-collapse: collapse;
+	margin-left:auto; 
+    margin-right:auto;
+    border: 1px solid black;
+}
+
+.datos, th ,td{
+	border: 1px solid black;
+	text-align: center;
+}
+
+th{ color: #FFFFFF; }
+
+th,td{ padding: 10px; }
+
+tr:nth-child(even) {background-color: #f2f2f2}
+
+tr>td:nth-child(1) {font-weight: bold;}
+
+th{ color: #FFFFFF;  background-color: ;}
+
+.normal{ background-color: #A8A77A; }
+
+.fire{ background-color: #EE8130; }
+
+.water{ background-color: #6390F0; }
+
+.electric{ background-color: #F7D02C; }
+
+.grass{ background-color: #7AC74C; }
+
+.ice{ background-color: #96D9D6; }
+
+.fighting{ background-color: #C22E28; }
+
+.poison{ background-color: #A33EA1; }
+
+.ground{ background-color: #E2BF65; }
+
+.flying{ background-color: #A98FF3; }
+
+.psychic{ background-color: #F95587; }
+
+.bug{ background-color: #A6B91A; }
+
+.rock{ background-color: #B6A136; }
+
+.ghost{ background-color: #735797; }
+
+.dragon{ background-color: #6F35FC; }
+
+.dark{ background-color: #705746; }
+
+.steel{ background-color: #B7B7CE; }
+
+.fairy{ background-color: #D685AD; }

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="bolitas.js"></script>
+    <script ype="text/javascript" src="reloj.js"></script>
+    
+	<meta charset="UTF-8">
+	<title>The HTML5 Canvas Text API</title>
+
+</head>
+<body>
+	<header >
+	<div id="titulo">
+		<h1>TextBuild.com</h1>
+		
+	</div>
+
+	<div id="subtitulo">
+		<h5>Imagine, Create and Sex</h5>
+	</div>
+	<div class="clear"></div>
+	</header>
+
+	<nav id="nave">
+	 	<div id="titi">
+	 	 <h1>The HTML5 Canvas Text API</h1>	
+	 	</div>
+	 	<div id="menu">
+	 		<ul>
+	 			<li><a href="main.html">Home</a></li>
+	 			<li><a href="example.html">Example</a></li>
+	 			<li><a href="k">Fonts</a></li>
+	 			<li><a href="m">Contact</a></li>
+	 		</ul>
+	 	</div>
+
+
+		<section class="clear"></section>
+	</nav>
+
+	<section id="cuerpo">
+		<section id="contenido">
+			<h1>Chapter 3:</h1> <br>
+			<p>The HTML5 Canvas Text API allows developers to render text on an HTML page in
+ways that were either tricky or next to impossible before its invention.
+We are providing an in-depth analysis of the HTML5 Canvas Text API because it is one
+of the most basic ways to interact with the canvas. However, that does not mean it was
+the first Canvas API feature developed. In fact, for many browsers, it was one of the last
+parts implemented.</p>
+<br>
+<p>
+	There was a time in the recent past when HTML5 Canvas Text API support in browsers
+was spotty at best. Back then, using modernizr.js to test for text support would have been
+a good idea. However, at this historic moment, all modern browser versions support
+the HTML5 Canvas Text API in some way.
+This chapter will create an application named “Text Arranger” to demonstrate the features
+and interdependencies of the HTML5 Canvas Text API. This application will display
+a single line of text in an almost infinite number of ways. This is also a useful tool
+to see whether support for text is common among web browsers. Later in this chapter,
+you will see that some text features are incompatible when drawn on the canvas at the
+same time.
+</p> <br>
+
+<h1>Canvas Text and CSS</h1> <br>
+<p>
+	The first thing you need to know about text on HTML5 Canvas is that it does not use
+CSS for style. While the properties of HTML5 Canvas look similar to CSS properties,
+they are not interchangeable. While your knowledge of CSS will help you understand
+text on the HTML5 Canvas, you can’t rely solely on that knowledge to be successful with
+Canvas text. That being said, Canvas can take advantage of fonts defined in a CSS file
+using @font-face, and can fall back to multiple different fonts if the defined font is not
+available.
+</p> <br>
+
+<h1>Displaying Basic Text</h1> <br>
+<p>
+	Displaying text on HTML5 Canvas is simple. We covered the basics in Chapter 1. Here,
+we will review these basics, and then we will show you how to make them work with
+the Text Arranger application.
+</p> <br>
+
+<h1>Basic Text Display</h1> <br>
+<p>The simplest way to define text to be displayed on the canvas is to set the con
+text.font style by using standard values for CSS font style attributes: font-style,
+font-weight, font-size, and font-face.</p><br>
+<p>We will discuss each of these attributes in detail in the upcoming section “Setting the
+Text Font” on page 89. All you need to know now is that a font designation of some type
+is required. Here is a simple example of setting a 50-point serif font:</p><br>
+<p>context.font = "50px serif";</p><br>
+
+<p>You also need to set the color of the text. For filled text, you would use the context.fill
+Style attribute and set it using a standard CSS color, or with a CanvasGradient or
+CanvasPattern object. We will discuss the latter two options later in the chapter.
+Finally, you call the context.fillText() method, passing the text to be displayed and
+the x and y positions of the text on the canvas.
+The following is an example of all three basic lines of code required to display filled text
+on HTML5 Canvas:</p><br>
+
+<p>context.font = "50px serif"</p>
+<p>context.fillStyle = "#FF0000";</p>
+<p>context.fillText ("Hello World", 100, 80);</p><br>
+
+<p>	If you do not specify a font, the default 10px sans-serif will be used automatically.</p><br>
+
+<h1>Handling Basic Text in Text Arranger</h1><br>
+
+<p>For Text Arranger, we are going to allow the user to set the text displayed by the call to
+context.fillText(). To do this, we will create a variable named message where we
+will store the user-supplied text. We will later use that variable in our call to con
+text.fillText(), inside the standard drawScreen() method that we introduced in
+Chapter 1 and will continue to use throughout this book:</p><br>
+
+<p>var message = "your text";</p>
+<p>...</p>
+<p>function drawScreen() {</p>
+<p>...</p>
+<p>context.fillStyle = "#FF0000";</p>
+<p>context.fillText (message, 100, 80);</p>
+<p>}</p> <br>
+
+<p>To change the text displayed on the canvas to the text entered by the user, we need to
+create an event handler for the text box keyup event. This means that whenever someone
+changes text in the box, the event handler function will be called.
+To make this work, we are going to name our text box in our HTML form using an
+input form element. Notice that the id is set to the value textBox. Also notice that
+we have set the placeholder="" attribute. This attribute is new to HTML5, so it might
+not work in every browser. You can also substitute it with the value="" attribute, which
+will not affect the execution of this application:</p><br>
+
+<h1>Communicating Between HTML Forms and the Canvas</h1> <br>
+
+<p>Back in our JavaScript code, we need to create an event handler for the keyup event of
+textBox. We do this by finding the form element by using the document.getElement
+ById() function of the DOM document object and storing it in the formElement variable.
+Then we call the addEventListener() method of formElement, setting the event to
+keyup and the event handler to the function textBoxChanged, which we have yet to
+define:</p><br>
+
+<p>var formElement = document.getElementById("textBox");</p>
+<p>formElement.addEventListener('keyup', textBoxChanged, false);</p> <br>
+
+<p>
+	The final piece of the puzzle is to define the textBoxChanged() event handler. This
+function works like the event handlers we created in Chapter 1. It is passed one parameter
+when it is called, an event object that we universally name e because it’s easy to
+remember.
+The event object contains a property named target that holds a reference to the HTML
+form element that created the change event. In turn, the target contains a property
+named value that holds the newly changed value of the form element that caused the
+event to occur (that is, textBox). We retrieve this value and store it in the message
+variable we created in JavaScript. It is the very same message variable we use inside the
+drawScreen() method to paint the canvas. Now, all we have to do is call
+drawScreen(), and the new value of message will appear “automagically” on the canvas:
+</p><br>
+
+
+<p>function textBoxChanged(e) {</p>
+<p>var target = e.target;</p>
+<p>message = target.value;</p>
+<p>drawScreen();</p>
+<p>}</p>
+
+
+		</section>
+		<aside id="lateral">
+			<h1>Reloj Mundial</h1>
+			<section id="reloj">
+				<canvas  id="miCanvas" height="200" width="300"> GG tu navegador no soporta canvas</canvas>
+			</section>
+
+			<h1>Mierda Visual</h1>
+			<br><br>
+			<section id="bolit">
+				<canvas id="micanvas" width="350" height="300"> no sirve GG</canvas>
+			</section>
+
+		</aside>
+		<section class="clear"></section>
+	</section>
+
+	<footer id="pie">
+	<section id="fuck">
+		<h1>"The fun is to make the model"</h1>
+	</section>
+		
+	<section class="clear"></section>
+	</footer>
+	
+</body>
+</html>

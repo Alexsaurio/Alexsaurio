@@ -1,0 +1,143 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans';
+*{
+	font-family: 'Open Sans', Arial;
+	margin: 0px;
+	color:#142839;
+}
+.clear{clear: both;}
+body{ 
+	/*background-image: url(http://www.fixabay.com/reimg/resize-img.php?src=http://www.fixabay.com/images/Abstract/vjqsrnvf43d.jpg&h=1050&w=1400);
+ 
+	background-repeat: no-repeat;
+	background-color: #f10b3c; */
+	background-color: #f10b3c;
+}
+#fecha, #brinco, header{
+ background-color: white;
+  }
+header, #menu, #fecha, #brinco, article{
+	border-bottom: 2px solid #f10b3c; 
+}
+#fecha, article{ border-top: 2px solid #f10b3c; }
+#principal{
+	padding: 10px;
+	background-color: #142839;
+	max-width: 70%;
+	margin-left: 15%;
+	margin-top: 20px;
+
+
+-webkit-box-shadow: 0px 3px 12px 0px rgba(0,0,0,0.58);
+-moz-box-shadow: 0px 3px 12px 0px rgba(0,0,0,0.58);
+box-shadow: 0px 3px 12px 0px rgba(0,0,0,0.58);
+
+}
+#logo{ 
+	float: left;
+
+}
+#logo img{
+	margin-top: 10px;
+	margin-left: 10px;
+	width: 200px;
+}
+#cepc{
+	float: right;
+}
+#cepc img{
+	margin-top: 10px;
+	margin-left: 10px;
+	width: 200px;	
+}
+#fecha{ 
+	color: #142839;
+	font-weight: bold;
+	/*color: #16A54B;*/
+ }
+#menu ul li{
+	text-align: center;
+    min-width: 80px; 
+	max-width: 100px;
+	padding: 7px;
+	display: inline-block;
+	margin-left: -5px;
+	color: white;
+    transition: color 1s, background-color 1s;
+    font-weight: bold;
+	/*background-color: yellow;
+	border: 1px solid black;
+	*/
+}
+#menu ul li:hover{
+	color: white;
+	background-color: #f10b3c;
+
+}
+#brinco{
+	min-height: 20px;
+	margin-bottom: 10px; 
+	border-left: 10px solid #f10b3c;
+}
+#lateral{
+	min-width: 24%;
+	max-width: 24%;
+
+	display: inline-block;
+	float: right;
+}
+#cuerpo{
+	min-width: 75%;
+	max-width: 75%;
+	
+	display: inline-block;
+	float: left;
+
+}
+
+article{	
+	margin-bottom:10px;
+    padding: 10px;
+    background-color: white;
+}
+article h2:hover{
+	color:  #f10b3c; 
+}
+#cuerpo img{ 
+	float: left;
+	width: 200px;
+	height: 120px;
+	margin: 0px 5px 0px 0px;
+	 }
+#cuerpo img, #cuerpo p{
+	display: inline;
+}
+a{
+	text-decoration: none;
+	color: #f10b3c;
+
+}
+#search input{
+	border: none;
+	border-bottom: 2px solid #f10b3c;
+
+}
+#search input:focus{
+	border: 2px solid #f10b3c;
+}
+#search button{
+	margin-top: 5px;
+	margin-left: 145px; 
+}
+#social{
+
+}
+#social ul{
+	margin-left: -15px;
+}
+#social ul li{ 
+	display: inline-block; 
+
+}
+#social img{
+	width: 50px;
+}

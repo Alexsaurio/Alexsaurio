@@ -1,0 +1,21 @@
+ul {
+	text-align: center;
+}
+ul li{
+	display: inline-block;
+	margin-left:  0px auto;
+	border: 1px solid black;
+	min-width: 70px;
+	min-height: 15px;
+	padding: 5px; 
+	background-color: #2EFE2E;
+
+	transition: background 2s, min-width 2s, color 2s;
+}
+ul li:hover{ 
+	min-width: 150px;
+	background: #0080FF; 
+	color: white;
+	
+
+ }

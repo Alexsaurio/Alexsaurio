@@ -1,0 +1,22 @@
+.logoimg{ margin: 0 auto; }
+header div{display: inline-block; margin: 0 auto;
+	 }
+
+*{ font-family: Century Gothic,Arial; }
+h2{ text-align: center; }
+p{ text-align: center; font-size: 15px}
+body{  background-color: #FFFF00; }
+section{ 
+	width: 60%;
+	margin-left: 20.2%;
+ }
+table{ border: 1 solid black; background-color: white; }
+.pot{ margin-left: 250px; }
+.pot2{ margin-left: 250px; }
+article{ border: 1px solid black; background-color: white; }
+
+#nombre{ font-family: Times New Roman;
+font-size: 20px;
+background-color: #656565;
+color: white; 
+margin-left: 65%}

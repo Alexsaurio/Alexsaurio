@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Asteroids</title>
+	<script type="text/javascript">
+
+	window.addEventListener("load",windowLoaded,false);
+
+	function windowLoaded(){
+	canvasApp();		
+	
+	}
+	function canvasApp() {
+
+		var canvas=document.getElementById("miCanvas");
+    	var context=theCanvas.getContext("2d");
+    	//titulo de pabtalla
+    	var tituloInicio = false;
+
+    	//estados del juego
+    	var ESTADO_INICIAL = 0;
+    	var ESTADO_ESPERANDO_POR_CARGAR=5;
+    	var ESTADO_DE_TITULO = 10;
+    	var ESTADO_NUEVO_JUEGO = 20;
+    	var ESTADO_NUEVO_NIVEL =30;
+    	var ESTADO_JUGADOR_START = 40;
+    	var ESTADO_JUGANDO_NIVEL = 50;
+    	var ESTADO_JUGADOR_MUERE = 60;
+    	var ESTADO_FIN_DEL_JUEGO = 70;
+    	var estadoActualDelJuego = ESTADO_INICIAL;
+    	var funcionEstadoActual= null;
+
+    	//entorno del juego
+    	var puntaje = 0;
+    	var vida = 3;
+    	var nivel = 0;
+    	var vidaExtraCada = 10000;
+    	var vidasGanadas = 0;
+
+    	//campo dodne jugar
+    	var xMin = 0;
+    	var xMax = canvas.width;
+    	var yMin = 0;
+    	var yMax = canvas.height;
+
+    	//puntaje
+    	var puntajeRocaGrande = 10;
+    	var puntajeRocaMediana = 50;
+    	var puntajeRocaChica = 100;
+    	var puntajePlatillo = 300;
+
+    	//constantes de meteoros
+    	var ROCA_GRANDE = 1;
+    	var ROCA_MEDIANA = 2;
+    	var ROCA_CHICA = 3;
+    	
+    	//objetos y arrays del juego;
+    	var jugador = {};
+    	var rocas=[];
+    	var platillos=[];
+    	var misilis=[];
+    	var particulas=[];
+    	var misilisPlatillos=[];
+    	var albercaDeParticulas=[];
+    	var particulasMax=200;
+    	var newParticula;
+    	var particulasTemporal;
+
+    	//teclaspresionadas
+    	var teclaspresionadas=[];
+
+    	//valores por nivel
+    	var nivelAjusteVelocidadRocaMaximo = 1;
+    	var nivelPlatilloMaximo=1;
+    	var nivelRangoOcurrenciaPlatillos=25;
+    	var nivelVelocidadPlatillo=1;
+        var nivelPlatilloMisilRetraso=300;
+    	var nivelRengoDisparoPlastillo=30;
+    	var nivelPlatilloVelocidadMisil=1;
+
+
+    	function cambiarEstadoDelJuego(estadoNuevo){
+    		estadoActualDelJuego = estadoNuevo;
+
+    		switch(estadoActualDelJuego){
+    			case ESTADO_INICIAL: 
+    				funcionEstadoActual= EstadoInicialDelJuego;
+    			break;
+
+    			case ESTADO_ESPERANDO_POR_CARGAR:
+    				funcionEstadoActual= EstadoEsperandoPorCargar;
+    			break;
+
+    			case ESTADO_DE_TITULO:
+    				funcionEstadoActual = EstadoEstadoDeTitulo;
+    			break;
+
+    			case ESTADO_NUEVO_JUEGO:
+    				funcionEstadoActual = EstadoNuevoJuego;
+    			break;
+
+    			case ESTADO_NUEVO_NIVEL:
+    				funcionEstadoActual = EstadoNuevoNivel;
+    			break;
+
+    			case ESTADO_JUGADOR_START:
+    				funcionEstadoActual = EstadoJugadorStart;
+    			break;
+
+    			case ESTADO_JUGANDO_NIVEL:
+    				funcionEstadoActual = EstadoJugadorNivel;
+    			break;
+
+    			case ESTADO_JUGADOR_MUERE:
+    				funcionEstadoActual = EstadoJugadorMuere;
+    			break;
+
+    			case ESTADO_FIN_DEL_JUEGO:
+    				funcionEstadoActual = EstadoFinDelJuego;
+    			break;
+
+    			default:
+    			 console.log("En tu corazon");
+    			 break;  
+
+
+    		}
+    	}
+
+    	function EstadoEsperandoPorCargar() {
+    		console.log("haciendo nada----");
+    	}
+
+    	function EstadoEstadoDeTitulo() {
+    		if(tituloInicio != True){
+    			fillBackground();
+    			setTextStyleTitle();
+
+    			context.fillText("Juego Ficticio de naves! op", 120, 70);
+    			setTextStyle();
+    			context.fillText("Presiona tu corazon para jugar", 130, 140);
+    			setTextStyleCredits();
+    			context.fillText("un ejemplo de Html5 y JS",125,200);
+    			context.fillText("con canvas",100,215);
+    			tituloInicio = true;
+    		}
+    		else {
+    			if(teclaspresionadas[32]=false){
+    				console.log("espacio presionado");
+    				cambiarEstadoDelJuego(ESTADO_NUEVO_JUEGO);
+    				tituloInicio  = false;
+    			}
+    		}
+    	}
+
+    	function EstadoNuevoNivel() {
+    		rocas=[];
+    		platillos=[];
+    		misilis=[]:
+    		misilisPlatillos=[];
+    		nivel++;
+    		nivelAjusteVelocidadRocaMaximo=nivel*.25;
+
+    		if (nivelAjusteVelocidadRocaMaximo>3) {
+    			nivelAjusteVelocidadRocaMaximo=3;
+    		}
+
+    		nivelPlatilloMaximo=1+Math.floor(nivel/10);
+ 			if (nivelPlatilloMaximo>5) {
+ 				nivelPlatilloMaximo=5;
+ 			}
+
+ 			nivelRangoOcurrenciaPlatillos=10+3*nivel;
+ 			if (nivelRangoOcurrenciaPlatillos>35) {
+ 				nivelRangoOcurrenciaPlatillos=35;
+ 			}
+
+ 			nivelVelocidadPlatillo=1+.5*nivel;
+ 			if (nivelVelocidadPlatillo>5) {
+ 				nivelVelocidadPlatillo=5;
+ 			}
+
+ 			nivelPlatilloMisilRetraso=120-10*nivel;
+ 			if (nivelPlatilloMisilRetraso <20) {
+ 				nivelPlatilloMisilRetraso = 20;
+ 			}
+
+ 			nivelRengoDisparoPlastillo=20+3*nivel;
+ 			if (nivelRengoDisparoPlastillo<50) {
+ 				nivelRengoDisparoPlastillo = 50;
+ 			}
+
+ 			nivelPlatilloVelocidadMisil=1+.2*nivel;
+ 			if (nivelPlatilloVelocidadMisil>4) {
+ 				nivelPlatilloVelocidadMisil=4;
+ 			}
+
+ 			for (var i = 0; i < nivel+3; i++) {
+ 				var nuevaRoca={};
+ 				
+ 				nuevaRoca.width=64;
+ 				nuevaRoca.height=64;
+ 				nuevaRoca.mitadWidth=32;
+ 				nuevaRoca.mitadAlto=32;
+
+ 				nuevaRoca.golpeWidth=48;
+ 				nuevaRoca.golpeHeight=48;
+
+ 				//empzian todas las nuevas tocas de la esquina superiro
+ 				nuevaRoca.x=Math.floor(Math.random()*50);
+ 				nuevaRoca.y=Math.floor(Math.random()*50);
+ 				nuevaRoca.dx=(Math.random()*2)+nivelAjusteVelocidadRocaMaximo;
+
+ 				if (Math.random <.5) {
+ 					nuevaRoca.dx*=-1;
+ 				}
+
+ 				nuevaRoca.dy=(Math.random()*2)+nivelAjusteVelocidadRocaMaximo;
+ 				if (Math.random()<.5) {
+ 					nuevaRoca.dy*=-1;
+ 				}
+
+ 				//rotacion y direccion
+ 				if (Math.random()<.5) {
+ 					nuevaRoca.rotacionInc=-1;
+ 				}
+ 				else{
+ 					 nuevaRoca.rotacionInc=1;
+ 				}
+
+ 				nuevaRoca.retrasoAnimacion = Math.floor(Math.random()3+1);
+ 				nuevaRoca.contadorAnimacion = 0;
+ 				nuevaRoca.valorPuntaje = puntajeRocaGrande;
+ 				rocas.push(nuevaRoca);
+
+
+ 			}
+
+ 			reinicarJugdor();
+ 			cambiarEstadoDelJuego(ESTADO_JUGADOR_START);
+    		// body...
+    	}
+
+		function dibujarPantalla(){
+
+
+		}
+		dibujarPantalla();
+	}
+	</script>
+</head>
+<body>
+ <div style="position: absolute; top: 50px; left: 50px;">
+ <canvas id="miCanvas" width="400" height="400"></canvas>
+ </div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+#titulo{ color: #04B486; }
+strong { color: red; }
+.destacado{ color: yellow; }
+#subtitulo{ color: blue; }
+a{ color: red; }
+.emm{ color: blue }
+.especiall{color: purple;}
+table,th,tr,td{ border-collapse: collapse; border: 1px solid black; border-width: 1px; padding: 7px;}
+caption { color: blue; }
+.especial, .uni{color: yellow;}
+.especialth{color: red;}
+.tabl{color: green;}
+#adicional{color: #86B404;}
+#especial{color: violet;}
+
+#adicional p a{color: #088A08;}

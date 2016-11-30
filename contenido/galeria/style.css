@@ -1,0 +1,68 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto';
+*{
+	font-family: 'Roboto',Arial;
+}
+header{
+
+	padding: 40px;
+	text-align: center;
+}
+h3{
+ font-size: 1.5em;
+}
+
+.rojo{
+	color: white;
+	background-color: #dc0a2d;
+}
+.contenedor{
+	padding: 10px 8px;
+}
+.tarjeta{
+	background-color: white;
+	float: left;
+	width: 32%;
+	
+	box-shadow: 0px  2px  4px  0px  rgba(0,0,0,.10), 0px  2px  10px  0px rgba(0,0,0,.12);
+	margin: 5px 5px;
+	box-sizing: border-box;
+}
+.marginArriba{
+	margin-top: 20px;
+}
+
+.imagentarjeta img{
+	width: 100%;
+}
+.infotarjeta{
+	background-color: #dc0a2d;
+	text-align: center;
+}
+
+.descripcion{
+    min-height: 110px; 
+	opacity: 1;
+    background-color: #dc0a2d;
+
+}
+
+
+
+@media screen and (max-width: 785px){
+	.tarjeta{
+		width: 48%;
+	}
+	.descripcion{
+	max-width: 47.3%;
+}
+
+}
+@media screen and (max-width: 585px){
+	.tarjeta{
+		width: 98%;
+	}
+	.descripcion{
+	max-width: 91.3%;
+}
+
+}

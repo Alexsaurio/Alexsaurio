@@ -1,0 +1,114 @@
+Luis, [14.09.16 16:04]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>PseudoClases</title>
+ <style type="text/css">
+  *{ font-family: Arial; margin: 0px; }
+  #fondo { background-color: #656565; }
+  #segundofondo{ background-color: #D8D8D8;  max-width: 70%; margin-left: 190px;}
+  #formulario { margin-left: 240px; max-width: 50%; background-color: white;
+    padding: 7px;
+    padding-top: 10px;
+    }
+  #formulario h5{ display: inline-block;}
+  .campos{   margin-top: 10px; min-width: 330px; }
+  .etiqueta, { float: left; }
+  .etiqueta, .campos{ display: inline-table; margin-left: 6px;}
+  input{ border: none; border-bottom: 2px solid black; }
+  input:focus{ border: 2px solid red; size: 30px; }
+  pre {display: inline-block;}
+
+   .color:hover{ background-color: yellow; }
+   #boton{ float: right; }
+   .clear{clear: both;}
+
+ </style>
+</head>
+<body id="fondo">
+ <section id="segundofondo">
+    <br>
+  <section id="formulario">
+     <h1> Formulario de registro </h1>
+     <br>
+   <hr>
+      <section class="color">
+    <section class="etiqueta">
+    <h5> Nombre y Apellidos </h5>
+    </section>
+
+   <section class="campos">
+   <input type="text"> <br>
+   <label for="nombre"> Nombre</label><br>
+   <input type="text" size="30"> <br>
+   <label for="nombre" > Apellido Paterno</label><br>
+   <input type="text" size="30"> <br>
+   <label for="nombre" > Apellido Materno</label><br>
+   <br>
+   </section>
+        </section>
+    <hr>
+        <section class="color">
+   <section class="etiqueta">
+      <h5 > <pre>                Direccion</pre> </h5>
+   </section>
+   <section class="campos">
+    <input type="text" size="30"> <br>
+   <label for="nombre" > calle numero piso puerta</label><br>
+   <input type="text" size="10"> <pre>          </pre>
+   <input type="text" size="15"> 
+   <br>
+   <label for="nombre" > CP</label> <pre>                          </pre>
+    <label for="nombre" > Municipio</label> <br>
+
+    <input type="text" size="10"> <pre>          </pre>
+   <input type="text" size="15"> 
+   <br>
+   <label for="nombre" > Provincia</label> <pre>                 </pre>
+    <label for="nombre" > Pais</label>
+    
+    </section>
+<br><br> <hr>
+   </section>
+    
+    <section class="color">
+        <section class="etiqueta">
+               <h5><pre>                     Email</pre> </h5>
+         </section>
+
+         <section class="campos">
+         <input type="text" size="40"> <br>
+       </section>
+       <br><br>
+        </section>
+       <hr>
+
+    <section class="color">
+       <section class="etiqueta">
+               <h5><pre>                 Telefono</pre> </h5>
+         </section>
+        <section class="campos">
+
+
+    <input type="text" size="10"> <pre>          </pre>
+   <input type="text" size="15"> 
+   <br>
+   <label for="nombre" > Fijo</label> <pre>                          </pre>
+    <label for="nombre" > Movil</label>
+        </section>
+    </section>
+    <br><hr>
+    <br>
+      
+      <button id="boton"> <strong>Regresar</strong></button>
+      <br><br>
+      <section class="clear"></section>
+
+    </section>
+    <br><br>
+  </section >
+
+ </section>
+</body>
+</html>

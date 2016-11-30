@@ -1,0 +1,46 @@
+
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Covered+By+Your+Grace|Indie+Flower');
+*{
+	margin: 0px;
+}
+body{
+ background-color: #e8e8e8;
+ /*background-color: #d3dadd;
+ background-color: #efc598;*/
+
+}
+.hove{
+	width: 203px;
+	height: 253px;
+	margin: 5px 5.5px;
+}
+img{
+	width: 200px;
+	height: 250px;
+	margin: 7px;
+
+	-webkit-box-shadow: 4px 5px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 4px 5px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 4px 5px 5px 0px rgba(0,0,0,0.75);
+}
+div{	
+
+	/*background-color: #CFD8DC;*/
+	width: 80%;
+	margin: 1% 10%;
+}
+header{ /*background-image: url("image/1.jpg");*/}
+#titulo,#subtitulo{
+	color: #455A64;
+}
+#titulo{
+	font-family: 'Abril Fatface',Arial;
+	font-size: 50px;
+	margin-left: 3%;
+	margin-top: 25px;
+}
+#subtitulo{
+	font-family: 'Indie Flower', cursive;
+	margin-top: -15px;
+	margin-left: 16%;
+}

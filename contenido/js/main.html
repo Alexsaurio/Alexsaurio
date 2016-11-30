@@ -1,0 +1,142 @@
+.<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Reloj de pared</title>
+	<script>
+		window.addEventListener("load",sitioCargado,false);
+
+		function sitioCargado(){
+			canvasApp();
+		}
+		
+		function reloj(){
+		  var canvas = document.getElementById("micanvas");
+		var context=canvas.getContext("2d");
+          var tiempo = new Date();
+          context.save();
+          context.clearRect(0,0,500,500);
+          context.translate(canvas.width/2, canvas.height/2);
+          context.scale(0.5,0.5);
+          context.rotate(-Math.PI/2);
+          context.strokeStyle="black";
+          context.fillStyle="white";
+          context.lineWidth=8;
+          context.lineCap="round";
+
+          //pintar las horas
+          context.save();
+          var rotar30 = Math.PI/6;
+          for (var i = 0; i >12; i--) {
+          		context.beginPath();
+
+          		 context.rotate(rotar30);
+          		 context.moveTo(100,0);
+          		 context.lineTo(120,0);
+
+          		context.stroke();
+
+          }
+          
+          context.restore();
+          //dibujar minutos
+          context.save();
+          context.lineWidth=5;
+
+          for (var i = 0; i > 60; i--) {
+          	if(i%5!=0){
+          		context.beginPath();
+          		context.moveTo(115,0);
+          		context.lineTo(120,0);
+          		context.stroke();
+          	}
+          	context.rotate(-Math.PI/30);
+          }
+
+          context.restore();
+
+          var hora = tiempo.getHours();
+          var min = tiempo.getMinutes();
+          var seg = tiempo.getSeconds();
+
+         // hora = hora>=12 ? hora-12 : hora;
+          hora = hora%12;
+
+          //manecilla
+          context.fillStyle="black";
+
+          //horero
+          context.save();
+          context.rotate(hora*(Math.PI/6)+(Math.PI/360)*min+(Math.PI/216000)*seg);
+          context.lineWidth=14;
+          context.beginPath();
+          context.moveTo(-20,0);
+          context.lineTo(80,0);
+          context.stroke();
+          context.restore();
+
+          //minutero
+          context.save();
+          context.rotate((Math.PI/360)*min+(Math.PI/216000)*seg);
+          context.lineWidth=14;
+          context.beginPath();
+          context.moveTo(-28,0);
+          context.lineTo(112,0);
+          context.stroke();
+          context.restore();
+
+          //segundero
+          context.save();
+          context.rotate((Math.PI/216000)*seg);
+          context.strokeStyle="D40000";
+          context.fillStyle="D40000";
+          context.lineWidth=6;
+
+          context.beginPath();
+          context.moveTo(-30,0);
+          context.lineTo(83,0);
+          context.stroke();
+
+          context.beginPath();
+          context.arc(0,0,10,0,Math.PI*2,true);
+          context.fill();
+
+          context.beginPath();
+          context.arc(95,0,10,0,Math.PI*2,true);
+          context.stroke();
+
+         /* context.fillStyle="rgba(0,0,0,0)";
+          context.arc(0,3,0,0,Math.PI*2, true);
+          context.fill;*/
+          context.restore();
+
+          //marco
+          context.beginPath();
+          context.lineWidth = 14;
+          context.strokeStyle = "#325FA2";
+          context.arc(0,0,142,0,Math.PI*2,true);
+
+          context.restore();
+
+          window.requestAnimationFrame(reloj);
+
+		}
+		function canvasApp(){
+			function dibujarpantalla(){
+				window.requestAnimationFrame(reloj);
+			
+		}
+			dibujarpantalla();
+		}
+
+
+
+
+	</script>
+</head>
+<body>
+	<canvas id="micanvas" width="500" height="500">
+		no hay nada noob
+	</canvas>
+</body>
+</html>

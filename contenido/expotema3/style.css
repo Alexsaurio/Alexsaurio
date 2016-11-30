@@ -1,0 +1,127 @@
+@import 'https://fonts.googleapis.com/css?family=Asap|BenchNine|Dancing+Script|Play|Righteous';
+
+*{
+	margin: 0px;
+	font-family:  'Play', 'Dancing Script', sans-serif;
+	/*usar fuente 'BenchNine' para el contenido*/
+}
+body{
+		overflow-x: hidden;
+		background-image: url("fondo.png");
+}
+/*body{
+    background-color: #4f4f4f;
+}
+#contenido,#lateral{
+	background-color: white;
+	border-radius: 5px;
+}*/
+p{
+	text-align: justify;
+}
+header{
+
+	background-color: #4f4f4f;
+
+	color: white;
+	border-bottom: 2px solid #b4ec08;
+}
+footer{
+	background-color: #4f4f4f;
+	border-top: 2px solid #b4ec08;
+	min-height: 70px;
+}
+#titi{
+	float: left;
+	color: #b4ec08;
+	color: #4f4f4f;
+	margin-left: 100px;
+}
+#menu {
+	
+	float: right;
+	margin-right: 162px;
+	
+}
+#nave{
+	padding: 10px;
+	background-color: white;
+}
+
+nav ul li{ 
+
+	display: inline-block;
+	margin-left: -4px;
+	padding: 5px 5px;
+	min-width: 100px;
+	font-weight: bold;
+	text-align: center;
+
+	 }
+nav a {
+	 text-decoration: none;
+	 color: #4f4f4f;
+	 font-size: 17px;
+	 padding: 3px;
+	 transition: .3s;
+	  }
+nav ul li a:hover{
+	
+	border-bottom: 5px solid #b4ec08; 
+	
+
+}
+
+#cuerpo{
+	border-top: 2px solid #b4ec08; 
+	padding: 10px;
+	margin: 0 8%;
+	max-width: 80%;
+	background-color: white;
+	/*background-color: #45053a;*/
+}
+
+#contenido{
+	max-width: 65%;
+	min-width: 65%;
+	padding: 5px;
+	float: left;
+	display: inline-block;
+}
+#lateral{
+	padding: 5px;
+	max-width: 32%;
+	min-width: 32%;
+	float: right;
+	display: inline-block;
+
+}
+#titulo h1{
+	font-family: 'Dancing Script', cursive;
+	}
+#titulo{
+	min-width: 90%;
+	font-size: 1.5em;
+	margin: 2% 0 0 0;
+	margin-left: 15%;
+	float: left;
+}
+#fuck{
+	color: white;
+	text-align: center;
+	font-size: 13px;
+	margin: 1.8% 0 0 0;
+	float: right;
+}
+#subtitulo{
+	float: left;
+	margin-left: 300px;
+	margin-top: -8px; 
+	margin-bottom: 30px;
+	color: #b4ec08;
+}
+#lateral h1{
+ text-align: center;
+}
+
+.clear{ clear: both; }

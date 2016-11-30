@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ahorcado ficticio</title>
+	<script>
+		window.addEventListener("load",EventWindowLoaded,false);
+		function EventWindowLoaded(){
+			canvasApp();
+		}
+		function canvasApp(){
+			var canvas = document.getElementById("micanvas");
+			var context = canvas.getContext("2d");
+			var veces;
+			var mensaje="Adivina la letra desde a hasta z";
+			var letras = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","v","w","x","y","z"];
+			var hoy = new Date();
+			var letra="";
+			
+			var utilizada;
+			var fin=false;
+
+			function iniciar(){
+				var indice = Math.floor(Math.random()*letras.length);
+				letra = letras[indice];
+				console.log(letra);
+				veces=0; 
+				utilizada=[];
+				window.addEventListener("keydown",eventKeyPressed,false)
+				dibujarPantalla();
+				//var indexletra = letras.indexOf(letra);
+
+				function eventKeyPressed(e){
+					if (!fin) {
+						var presionada = String.fromCharCode(e.keyCode);
+						presionada = presionada.toLowerCase();
+						console.log(presionada);
+						if (presionada == letra) {
+							fin = true;
+						}
+						else{
+							var indicepress = letras.indexOf(presionada);
+
+							if (indicepress < 0 ) {
+								mensaje = "No es una letra";
+							}
+							else {
+
+								utilizada.push(presionada);
+								veces++;
+							 if (indicepress > indice) {
+								mensaje= "letra mas abajo";
+							}
+							else
+								mensaje= "letra mas arriba";
+							}
+
+						}
+					}
+				dibujarPantalla();	
+				}
+			}
+
+			function dibujarPantalla(){
+				//background
+				context.fillStyle="#fffaaa";
+				context.fillRect(0,0,9999,500);
+				context.textBaseline="top";
+                
+                //fecha
+				context.fillStyle="#000";
+				context.font="20px Sans-Serif";
+				context.fillText(hoy,90,10);
+
+				//mensaje
+				context.fillStyle="#FF0000";
+				context.font="30px Arial";
+				context.fillText(mensaje,110,50);
+
+				//Veces
+				context.fillStyle="#109910";
+				context.font="16px Sans-Serif";
+				context.fillText("Veces: "+veces,115,80);
+
+				//letras usadas
+				context.fillStyle="#FF0000";
+				context.font="20px Arial";
+				context.fillText("Letras intentadas: "+utilizada.toString(),10,260);
+
+				if(fin){
+				context.fillStyle="#FF0000";
+				context.font="40px Sans-Serif";
+				context.fillText("Ganaste!!",150,190);	
+
+				}
+
+
+
+
+			}
+			iniciar();
+			dibujarPantalla();
+		}
+  
+	</script>
+</head>
+<body>
+	<canvas id="micanvas" height="1000" width="1000">muerto</canvas>
+</body>
+</html>

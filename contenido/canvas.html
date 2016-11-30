@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas</title>
+	<link rel="stylesheet" type="text/css" href="canvas.css">
+	<script type="text/javascript">
+		window.addEventListener("load",eventWindowsLoaded,false);
+
+		function eventWindowsLoaded(){
+			canvasApp()
+		}
+		function canvasApp(){
+			var canvas = document.getElementById("micanvas");
+			var context=canvas.getContext("2d");
+
+			function dibujarPantalla(){
+				//background
+				context.fillStyle="#fffaaa";
+				context.fillRect(0,0,500,500);
+
+				//text
+				context.fillStyle="#000";
+				context.font= "20px Sans-Serif";
+				context.baseline="top";
+				context.fillText("Hola", 195, 80);
+
+				//img
+				var imagen = new Image();
+				imagen.onload=function(){
+					context.drawImage(imagen,155,110,200,200);
+				} 
+				imagen.src="cpec.jpg";
+
+				//box
+				context.strokeStyle="#000";
+				context.strokeRect(0,0,500,500);
+			}
+
+			dibujarPantalla();
+		}
+	</script>
+</head>
+<body>
+	
+	<canvas id="micanvas" height="500" width="500">
+		Nel falso
+	</canvas>
+
+</body>
+</html>
